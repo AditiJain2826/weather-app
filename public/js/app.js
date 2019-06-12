@@ -33,9 +33,11 @@ const msg2 = document.querySelector('#msg-2');
 msg1.textContent = ""
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    location = searchTerm.value
+    let lo = searchTerm.value
+    console.log(lo)
+    
     msg1.textContent = 'loading...';
-    fetch('/weather?address='+location).then((res) => {
+    fetch('/weather?address='+lo).then((res) => {
         res.json().then((data) => {
             console.log(data);
             msg1.textContent=data.forecast
@@ -47,5 +49,5 @@ weatherForm.addEventListener('submit', (e) => {
     }, (error) => {
         console.log(error)
         msg1.textContent = error;
-    })
+   })
 })
