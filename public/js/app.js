@@ -33,7 +33,7 @@ const msg2 = document.querySelector('#msg-2');
 msg1.textContent = ""
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    // location = searchTerm.value
+    location = searchTerm.value
     msg1.textContent = 'loading...';
     fetch('/weather?address='+location).then((res) => {
         res.json().then((data) => {
